@@ -1,7 +1,10 @@
-import React from 'react'
+import React, {useState} from 'react'
 import { Button, Card, Col, Form, Row } from 'react-bootstrap'
 
 const Formulario = () => {
+
+    const [validacion, setValidacion] = useState(false)
+
   return (
         <Col xs={12}>
         <Card>
@@ -11,7 +14,7 @@ const Formulario = () => {
                 </Card.Text>
             </Card.Header>
             <Card.Body>
-                <Form>  
+                <Form noValidate validated={validacion}>  
                     <Form.Group className="mb-2">
                         <Row>
                             <Col>
