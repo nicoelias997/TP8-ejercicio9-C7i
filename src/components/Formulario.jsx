@@ -8,7 +8,6 @@ import {
   validarMascota,
   validarSintoma,
 } from "../validacionesForm";
-import AdministradorCitas from "./AdministradorCitas";
 
 const Formulario = () => {
   let storageCard = JSON.parse(localStorage.getItem("listaCitas")) || [];
@@ -19,19 +18,13 @@ const Formulario = () => {
   const [hora, setHora] = useState("");
   const [sintoma, setSintoma] = useState("");
 
-  const [citas, setCitas] = useState(false)
 
   const [crearCard, setCrearCard] = useState({});
   const [arrayCard, setArrayCard] = useState(storageCard);
 
   useEffect(() => {
     localStorage.setItem("listaCitas", JSON.stringify(arrayCard));
-    if(storageCard.length > 0) 
-    setCitas(true)
-    else {
-    setCitas(false)
-    }
-  }, [arrayCard, storageCard.length]);
+  }, [arrayCard]);
 
   const agregarCard = (e) => {
     e.preventDefault();
@@ -151,9 +144,6 @@ const Formulario = () => {
         </Card>
       </Form>
     </Col>
-    {
-        citas ? (<AdministradorCitas></AdministradorCitas>) : null
-    }
     </Container>
   );
 };

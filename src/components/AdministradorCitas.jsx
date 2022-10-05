@@ -7,16 +7,10 @@ const AdministradorCitas = () => {
   let storageCard = JSON.parse(localStorage.getItem("listaCitas")) || [];
 
   const [arrayCard, setArrayCard] = useState(storageCard)
-  const [citas, setCitas] = useState(false)
 
   React.useEffect(() => {
     localStorage.setItem("listaCitas", JSON.stringify(arrayCard));
-    if(storageCard.length > 0) 
-    setCitas(true)
-    else {
-    setCitas(false)
-    }
-  }, [arrayCard, storageCard.length]);
+    }, [arrayCard]);
  
   const eliminarCard = (id) => {
     const arrayFiltrado = arrayCard.filter(item => item.id !== id)
@@ -29,9 +23,7 @@ const AdministradorCitas = () => {
       <Card className="mt-3">
         <Card.Header>
           <Card.Title className="text-center">
-            {
-                citas ? "Administrar citas" : "No hay citas"
-            }
+            Administrar citas
           </Card.Title>
         </Card.Header>
         <Card.Body>
