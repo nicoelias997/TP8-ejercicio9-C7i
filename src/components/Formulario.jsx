@@ -19,7 +19,6 @@ const Formulario = () => {
   const [sintoma, setSintoma] = useState("");
 
 
-  const [crearCard, setCrearCard] = useState({});
   const [arrayCard, setArrayCard] = useState(storageCard);
 
   useEffect(() => {
@@ -28,7 +27,7 @@ const Formulario = () => {
 
   const agregarCard = (e) => {
     e.preventDefault();
-
+        
     if (
       !validarDuenio(duenio) &&
       !validarFecha(fecha) &&
@@ -39,18 +38,20 @@ const Formulario = () => {
       alert("Debes completar todos los campos");
       return;
     } else {
-      setCrearCard({
-        mascota,
-        duenio,
-        fecha,
-        hora,
-        sintoma,
-        id: `${mascota}${duenio}`,
-      });
-      console.log(crearCard)
-      console.log("muy bien bro")
+     
+      setArrayCard([
+        ...arrayCard,
+        {
+          mascota: mascota,
+          duenio: duenio,
+          fecha: fecha,
+          hora: hora,
+          sintoma: sintoma,
+          id: `${mascota}${duenio}`
+        }
+      ])
+      console.log("muy bien bro") 
     }
-    setArrayCard([...arrayCard, crearCard]);
   };
 
   return (
