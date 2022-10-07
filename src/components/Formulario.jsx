@@ -21,13 +21,24 @@ const Formulario = () => {
 
   const [arrayCard, setArrayCard] = useState(storageCard);
 
+
+  
+
   useEffect(() => {
     localStorage.setItem("listaCitas", JSON.stringify(arrayCard));
   }, [arrayCard]);
 
   const agregarCard = (e) => {
     e.preventDefault();
-        
+    let cardNueva = 
+    {
+      mascota: mascota,
+      duenio: duenio,
+      fecha: fecha,
+      hora: hora,
+      sintoma: sintoma,
+      id: `${mascota}${duenio}`
+    }
     if (
       !validarDuenio(duenio) &&
       !validarFecha(fecha) &&
@@ -37,21 +48,13 @@ const Formulario = () => {
     ) {
       alert("Debes completar todos los campos");
       return;
-    } else {
-     
+    } 
+    
       setArrayCard([
         ...arrayCard,
-        {
-          mascota: mascota,
-          duenio: duenio,
-          fecha: fecha,
-          hora: hora,
-          sintoma: sintoma,
-          id: `${mascota}${duenio}`
-        }
+        cardNueva
       ])
       console.log("muy bien bro") 
-    }
   };
 
   return (
