@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Button, Card, Col, Container, Form, Row } from "react-bootstrap";
 
+import AdministradorCitas from "./AdministradorCitas";
+
 import {
   validarDuenio,
   validarFecha,
@@ -20,9 +22,6 @@ const Formulario = () => {
 
 
   const [arrayCard, setArrayCard] = useState(storageCard);
-
-
-  
 
   useEffect(() => {
     localStorage.setItem("listaCitas", JSON.stringify(arrayCard));
@@ -56,6 +55,12 @@ const Formulario = () => {
       ])
       console.log("muy bien bro") 
   };
+
+  const eliminarCard = (id) => {
+    console.log("a ver")
+    // const arrayFiltrado = arrayCard.filter(item => item.id !== id)
+    // setArrayCard(arrayFiltrado)
+  }
 
   return (
     <Container>
@@ -148,6 +153,7 @@ const Formulario = () => {
         </Card>
       </Form>
     </Col>
+    <AdministradorCitas arrayCard={arrayCard} eliminarCard={() => eliminarCard()}></AdministradorCitas>
     </Container>
   );
 };
