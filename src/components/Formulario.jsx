@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Button, Card, Col, Container, Form, Row } from "react-bootstrap";
+import { v4 as uuidv4 } from 'uuid';
 
 import AdministradorCitas from "./AdministradorCitas";
 
@@ -36,13 +37,13 @@ const Formulario = () => {
       fecha: fecha,
       hora: hora,
       sintoma: sintoma,
-      id: `${mascota}${duenio}`
+      id: uuidv4()
     }
     if (
-      !validarDuenio(duenio) &&
-      !validarFecha(fecha) &&
-      !validarHora(hora) &&
-      !validarMascota(mascota) &&
+      !validarDuenio(duenio) ||
+      !validarFecha(fecha) ||
+      !validarHora(hora) ||
+      !validarMascota(mascota) ||
       !validarSintoma(sintoma)
     ) {
       alert("Debes completar todos los campos");
@@ -57,8 +58,8 @@ const Formulario = () => {
   };
 
   const eliminarCard = (id) => {
-    console.log("a ver")
-    // const arrayFiltrado = arrayCard.filter(item => item.id !== id)
+    const arrayFiltrado = arrayCard.filter(item => item.id !== id)
+    console.log()
     // setArrayCard(arrayFiltrado)
   }
 
@@ -153,7 +154,8 @@ const Formulario = () => {
         </Card>
       </Form>
     </Col>
-    <AdministradorCitas arrayCard={arrayCard} eliminarCard={() => eliminarCard()}></AdministradorCitas>
+      
+      <AdministradorCitas arrayCard={arrayCard} eliminarCard={() => eliminarCard()}></AdministradorCitas>
     </Container>
   );
 };
