@@ -16,7 +16,7 @@ const AdministradorCitas = (props) => {
         <Card.Body>
           <Row xs={12} sm={6} md={3} lg={4}>
               {
-                props.arrayCard.map(element => <CardCitas key={element.id} nombreMascota={element.mascota} nombreDuenio={element.duenio} fecha={element.fecha} hora={element.hora} sintoma={element.sintoma} eliminarCard={props.eliminarCard}></CardCitas>
+                props.arrayCard.map(element => <CardCitas id={element.id} key={element.id} nombreMascota={element.mascota} nombreDuenio={element.duenio} fecha={element.fecha} hora={element.hora} sintoma={element.sintoma} eliminarCard={props.eliminarCard}></CardCitas>
                 )
               }        
           </Row>

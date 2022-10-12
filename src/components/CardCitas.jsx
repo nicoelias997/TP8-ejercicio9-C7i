@@ -2,6 +2,7 @@ import React from "react";
 import { Card, Col, Form, Row, Image, Button } from "react-bootstrap";
 
 const CardCitas = (props) => {
+
   return (
     <Card>
       <Card.Header>
@@ -54,7 +55,7 @@ const CardCitas = (props) => {
       <Card.Footer>
         <Button
           className="btn btn-danger float-end"
-          onClick={props.eliminarCard}
+          onClick={() => props.eliminarCard(props.id)}
         >
           Borrar
         </Button>

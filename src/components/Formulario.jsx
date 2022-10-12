@@ -48,19 +48,19 @@ const Formulario = () => {
     ) {
       alert("Debes completar todos los campos");
       return;
-    } 
-    
+    } else {
       setArrayCard([
         ...arrayCard,
         cardNueva
       ])
-      console.log("muy bien bro") 
+    }
+    console.log(cardNueva)
+
   };
 
   const eliminarCard = (id) => {
-    const arrayFiltrado = arrayCard.filter(item => item.id !== id)
-    console.log()
-    // setArrayCard(arrayFiltrado)
+  const arrayFiltrado = arrayCard.filter(item => item.id !== id)
+  setArrayCard(arrayFiltrado)
   }
 
   return (
@@ -154,8 +154,10 @@ const Formulario = () => {
         </Card>
       </Form>
     </Col>
+    {
       
-      <AdministradorCitas arrayCard={arrayCard} eliminarCard={() => eliminarCard()}></AdministradorCitas>
+        <AdministradorCitas arrayCard={arrayCard} eliminarCard={eliminarCard}></AdministradorCitas>          
+    }
     </Container>
   );
 };
