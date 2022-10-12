@@ -30,9 +30,9 @@ export function validarDuenio(duenio){
 }
 
 export function validarFecha(fecha){
-    const regEx = /^(0[1-9]|[12]\d|3[01])[\/\-\.](0[1-9]|1[0-2])[\/\-\.](19|20)\d{2}$/g;
-    if(fecha.trim() 
-    && regEx.test(fecha)
+    // const regEx = /^(0[1-9]|[12]\d|3[01])[\/\-\.](0[1-9]|1[0-2])[\/\-\.](19|20)\d{2}$/g;
+    if(fecha.trim() && fecha.length === 10
+    // && regEx.test(fecha)
     ){
         return true
     }
